@@ -1,0 +1,61 @@
+I200313 14:26:45.378176 1 util/log/clog.go:1196  [config] file created at: 2020/03/13 14:26:45
+I200313 14:26:45.378176 1 util/log/clog.go:1196  [config] running on machine: 22bf95210875
+I200313 14:26:45.378176 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:26:45.378176 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=node_1]
+I200313 14:26:45.378176 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200313 14:26:45.378162 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200313 14:26:45.385901 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200313 14:26:45.387754 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:26:45.387974 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (500 MiB).
+I200313 14:26:45.388689 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:26:45.388803 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (500 MiB).
+I200313 14:26:45.389455 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:26:45.389605 1 cli/start.go:1196  CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:26:45.552835 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:26:45.552877 1 server/config.go:394  system total memory: 2.0 GiB
+I200313 14:26:45.552942 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200313 14:26:45.552989 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200313 14:26:45.553031 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200313 14:26:45.553132 1 cli/start.go:644  starting cockroach node
+I200313 14:26:45.555326 53 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp258535424"
+I200313 14:26:45.643973 53 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200313 14:26:45.645983 53 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200313 14:26:45.715318 53 server/config.go:502  [n?] 1 storage engine initialized
+I200313 14:26:45.715355 53 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200313 14:26:45.715472 53 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200313 14:26:45.726559 53 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+W200313 14:26:45.726718 53 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "22bf95210875" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200313 14:26:45.728990 53 server/server.go:978  [n?] Sleeping till wall time 1584109605728900700 to catches up to 1584109606143890101 to ensure monotonicity. Delta: 414.989401ms
+W200313 14:26:45.729910 15 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {node_1:26257 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused". Reconnecting...
+I200313 14:26:45.730058 12 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip [::]:26257->node_1:26257 tripped: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused"
+I200313 14:26:45.730090 12 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip [::]:26257->node_1:26257 event: BreakerTripped
+W200313 14:26:45.730127 12 gossip/client.go:118  [n?] failed to start gossip client to node_1:26257: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused"
+I200313 14:26:46.146484 53 gossip/gossip.go:394  [n2] NodeDescriptor set to node_id:2 address:<network_field:"tcp" address_field:"22bf95210875:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.4" started_at:1584109606146265800 cluster_name:"" sql_address:<network_field:"tcp" address_field:"22bf95210875:26257" > 
+I200313 14:26:46.220450 53 server/node.go:431  [n2] initialized store [n2,s2]: disk (capacity=58 TiB, available=32 TiB, used=697 KiB, logicalBytes=0 B), ranges=0, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200313 14:26:46.220645 53 storage/stores.go:240  [n2] read 1 node addresses from persistent storage
+I200313 14:26:46.220923 53 server/node.go:645  [n2] connecting to gossip network to verify cluster ID...
+W200313 14:26:46.731653 15 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {node_1:26257 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200313 14:26:46.792652 92 gossip/gossip.go:1300  [n2] invalid bootstrap address: &{typ:tcp addr:29b1af8e5b79:26257}, lookup 29b1af8e5b79 on 127.0.0.11:53: no such host

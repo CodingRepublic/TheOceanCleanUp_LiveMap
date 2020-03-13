@@ -1,0 +1,110 @@
+I200313 14:45:06.515195 1 util/log/clog.go:1196  [config] file created at: 2020/03/13 14:45:06
+I200313 14:45:06.515195 1 util/log/clog.go:1196  [config] running on machine: a78564d74f65
+I200313 14:45:06.515195 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:45:06.515195 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=node_1]
+I200313 14:45:06.515195 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200313 14:45:06.515125 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200313 14:45:06.521628 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200313 14:45:06.524395 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:45:06.525276 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (500 MiB).
+I200313 14:45:06.527894 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:45:06.528120 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (500 MiB).
+I200313 14:45:06.529342 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:45:06.529398 1 cli/start.go:1196  CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:45:06.658042 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:45:06.658087 1 server/config.go:394  system total memory: 2.0 GiB
+I200313 14:45:06.658170 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200313 14:45:06.658217 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200313 14:45:06.658285 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200313 14:45:06.658372 1 cli/start.go:644  starting cockroach node
+I200313 14:45:06.663094 39 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp889791860"
+I200313 14:45:06.796782 39 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200313 14:45:06.802569 39 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200313 14:45:07.595514 39 server/config.go:502  [n?] 1 storage engine initialized
+I200313 14:45:07.595626 39 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200313 14:45:07.595654 39 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200313 14:45:07.610001 39 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+W200313 14:45:07.613943 39 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "a78564d74f65" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200313 14:45:07.618029 39 gossip/gossip.go:394  [n3] NodeDescriptor set to node_id:3 address:<network_field:"tcp" address_field:"a78564d74f65:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.4" started_at:1584110707617821000 cluster_name:"" sql_address:<network_field:"tcp" address_field:"a78564d74f65:26257" > 
+I200313 14:45:07.678006 80 gossip/client.go:124  [n3] started gossip client to node_1:26257
+W200313 14:45:07.733123 160 storage/replica_range_lease.go:554  can't determine lease status due to node liveness error: node not in the liveness table
+github.com/cockroachdb/cockroach/pkg/storage.init.ializers
+	/go/src/github.com/cockroachdb/cockroach/pkg/storage/node_liveness.go:44
+runtime.main
+	/usr/local/go/src/runtime/proc.go:188
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1337
+W200313 14:45:07.733441 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+W200313 14:45:07.789742 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+I200313 14:45:07.815929 39 server/node.go:431  [n3] initialized store [n3,s3]: disk (capacity=58 TiB, available=32 TiB, used=1.2 MiB, logicalBytes=16 MiB), ranges=18, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=387.00 p75=12124.00 p90=109083.00 pMax=17037092.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200313 14:45:07.816583 39 storage/stores.go:240  [n3] read 3 node addresses from persistent storage
+I200313 14:45:07.816782 39 storage/stores.go:259  [n3] wrote 6 node addresses to persistent storage
+I200313 14:45:07.816970 39 server/node.go:645  [n3] connecting to gossip network to verify cluster ID...
+I200313 14:45:07.817026 39 server/node.go:665  [n3] node connected via gossip and verified as part of cluster "658b6d5e-e699-44c5-895d-ae8ec745f62b"
+I200313 14:45:07.817246 39 server/node.go:512  [n3] node=3: started with [<no-attributes>=/cockroach/cockroach-data] engine(s) and attributes []
+I200313 14:45:07.819138 39 server/server.go:1514  [n3] starting http server at [::]:8080 (use: a78564d74f65:8080)
+I200313 14:45:07.819214 39 server/server.go:1521  [n3] starting grpc/postgres server at [::]:26257
+I200313 14:45:07.819267 39 server/server.go:1522  [n3] advertising CockroachDB node at a78564d74f65:26257
+W200313 14:45:07.878152 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+W200313 14:45:08.081442 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+I200313 14:45:08.374081 80 gossip/client.go:129  [n3] closing client to n1 (node_1:26257): stopping outgoing client to n1 (node_1:26257); already have incoming
+W200313 14:45:08.502670 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+W200313 14:45:08.620246 102 gossip/gossip.go:1300  [n3] invalid bootstrap address: &{typ:tcp addr:068c9c09d521:26257}, lookup 068c9c09d521 on 127.0.0.11:53: no such host
+W200313 14:45:08.625642 102 gossip/gossip.go:1300  [n3] invalid bootstrap address: &{typ:tcp addr:22bf95210875:26257}, lookup 22bf95210875 on 127.0.0.11:53: no such host
+I200313 14:45:08.627443 259 gossip/client.go:124  [n3] started gossip client to node_1:26257
+I200313 14:45:08.629397 259 gossip/client.go:129  [n3] closing client to n1 (node_1:26257): stopping outgoing client to n1 (node_1:26257); already have incoming
+W200313 14:45:09.266405 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+I200313 14:45:09.632777 268 gossip/client.go:124  [n3] started gossip client to 6f5a45d6756d:26257
+I200313 14:45:09.634638 268 gossip/client.go:129  [n3] closing client to n1 (6f5a45d6756d:26257): stopping outgoing client to n1 (6f5a45d6756d:26257); already have incoming
+W200313 14:45:10.141121 160 storage/store.go:1530  [n3,s3,r6/3:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n3,s3):3 not lease holder; lease holder unknown
+I200313 14:45:10.635434 338 gossip/client.go:124  [n3] started gossip client to bd2bbd8edd61:26257
+I200313 14:45:10.636360 338 gossip/client.go:129  [n3] closing client to n2 (bd2bbd8edd61:26257): stopping outgoing client to n2 (bd2bbd8edd61:26257); already have incoming
+I200313 14:45:11.074631 103 gossip/gossip.go:1531  [n3] node has connected to cluster via gossip
+I200313 14:45:11.074974 103 storage/stores.go:259  [n3] wrote 3 node addresses to persistent storage
+I200313 14:45:11.288692 39 server/server.go:1590  [n3] done ensuring all necessary migrations have run
+I200313 14:45:11.289394 39 server/server.go:1841  [n3] serving sql connections
+I200313 14:45:11.289984 39 cli/start.go:803  [config] clusterID: 658b6d5e-e699-44c5-895d-ae8ec745f62b
+I200313 14:45:11.290042 39 cli/start.go:812  node startup completed:
+CockroachDB node starting at 2020-03-13 14:45:11.2897404 +0000 UTC (took 4.8s)
+build:               CCL v19.2.4 @ 2020/02/06 21:55:19 (go1.12.12)
+webui:               http://a78564d74f65:8080
+sql:                 postgresql://root@a78564d74f65:26257?sslmode=disable
+RPC client flags:    /cockroach/cockroach <client cmd> --host=a78564d74f65:26257 --insecure
+logs:                /cockroach/cockroach-data/logs
+temp dir:            /cockroach/cockroach-data/cockroach-temp889791860
+external I/O path:   /cockroach/cockroach-data/extern
+store[0]:            path=/cockroach/cockroach-data
+status:              restarted pre-existing node
+clusterID:           658b6d5e-e699-44c5-895d-ae8ec745f62b
+nodeID:              3
+I200313 14:45:11.320539 484 sql/event_log.go:130  [n3] Event: "node_restart", target: 3, info: {Descriptor:{NodeID:3 Address:a78564d74f65:26257 Attrs: Locality: ServerVersion:19.2 BuildTag:v19.2.4 StartedAt:1584110707617821000 LocalityAddress:[] ClusterName: SQLAddress:a78564d74f65:26257} ClusterID:658b6d5e-e699-44c5-895d-ae8ec745f62b StartedAt:1584110707617821000 LastUp:1584110691323384100}
+I200313 14:45:11.323721 450 server/server_update.go:50  [n3] failed attempt to upgrade cluster version, error: node 3 not running (UNAVAILABLE), cannot determine version
+W200313 14:45:11.415459 224 storage/node_liveness.go:559  [n3,liveness-hb] slow heartbeat took 3.6s
+I200313 14:45:11.415548 224 storage/node_liveness.go:474  [n3,liveness-hb] heartbeat failed on epoch increment; retrying
+E200313 14:45:11.415695 437 storage/replica_range_lease.go:339  [n3,s3,r4/2:/System{/tsd-tse}] heartbeat failed on epoch increment
+I200313 14:45:11.641749 509 gossip/client.go:124  [n3] started gossip client to 0fa111da6291:26257
+I200313 14:45:12.464572 450 server/server_update.go:53  [n3] no need to upgrade, cluster already at the newest version
+I200313 14:45:17.820927 218 server/status/runtime.go:498  [n3] runtime stats: 169 MiB RSS, 245 goroutines, 82 MiB/37 MiB/135 MiB GO alloc/idle/total, 15 MiB/22 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (9x), 322 KiB/259 KiB (r/w)net

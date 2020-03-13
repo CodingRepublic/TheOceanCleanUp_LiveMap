@@ -1,0 +1,169 @@
+I200313 14:36:15.860210 1 util/log/clog.go:1196  [config] file created at: 2020/03/13 14:36:15
+I200313 14:36:15.860210 1 util/log/clog.go:1196  [config] running on machine: 22bf95210875
+I200313 14:36:15.860210 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:36:15.860210 1 util/log/clog.go:1196  [config] arguments: [/cockroach/cockroach start --insecure --join=node_1]
+I200313 14:36:15.860210 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200313 14:36:15.860196 1 cli/start.go:1144  logging to directory /cockroach/cockroach-data/logs
+W200313 14:36:15.865373 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access <all your IP addresses>.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+I200313 14:36:15.865848 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:36:15.865958 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (500 MiB).
+I200313 14:36:15.866319 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+W200313 14:36:15.866362 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (500 MiB).
+I200313 14:36:15.866663 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:36:15.866709 1 cli/start.go:1196  CockroachDB CCL v19.2.4 (x86_64-unknown-linux-gnu, built 2020/02/06 21:55:19, go1.12.12)
+I200313 14:36:16.034930 1 server/status/recorder.go:597  available memory from cgroups is unsupported, using system memory 2.0 GiB instead: failed to find cgroup memory limit
+I200313 14:36:16.034973 1 server/config.go:394  system total memory: 2.0 GiB
+I200313 14:36:16.035036 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200313 14:36:16.035078 1 cli/start.go:1030  using local environment variables: COCKROACH_CHANNEL=official-docker
+I200313 14:36:16.035115 1 cli/start.go:1037  process identity: uid 0 euid 0 gid 0 egid 0
+I200313 14:36:16.035196 1 cli/start.go:644  starting cockroach node
+I200313 14:36:16.042910 9 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data/cockroach-temp096492076"
+I200313 14:36:16.107229 9 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+I200313 14:36:16.108790 9 storage/engine/rocksdb.go:622  opening rocksdb instance at "/cockroach/cockroach-data"
+I200313 14:36:16.197593 9 server/config.go:502  [n?] 1 storage engine initialized
+I200313 14:36:16.197625 9 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200313 14:36:16.197674 9 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 1043576
+W200313 14:36:16.215281 9 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+W200313 14:36:16.215596 9 cli/start.go:996  neither --listen-addr nor --advertise-addr was specified.
+The server will advertise "22bf95210875" to other nodes, is this routable?
+
+Consider using:
+- for local-only servers:  --listen-addr=localhost
+- for multi-node clusters: --advertise-addr=<host/IP addr>
+I200313 14:36:16.219850 9 server/server.go:978  [n?] Sleeping till wall time 1584110176219779400 to catches up to 1584110176607163901 to ensure monotonicity. Delta: 387.384501ms
+W200313 14:36:16.220254 45 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {node_1:26257 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused". Reconnecting...
+I200313 14:36:16.220506 42 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip [::]:26257->node_1:26257 tripped: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused"
+I200313 14:36:16.220546 42 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip [::]:26257->node_1:26257 event: BreakerTripped
+W200313 14:36:16.220602 42 gossip/client.go:118  [n?] failed to start gossip client to node_1:26257: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp 172.20.0.3:26257: connect: connection refused"
+I200313 14:36:16.608005 9 gossip/gossip.go:394  [n2] NodeDescriptor set to node_id:2 address:<network_field:"tcp" address_field:"22bf95210875:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.4" started_at:1584110176607859100 cluster_name:"" sql_address:<network_field:"tcp" address_field:"22bf95210875:26257" > 
+I200313 14:36:16.717652 9 server/node.go:431  [n2] initialized store [n2,s2]: disk (capacity=58 TiB, available=32 TiB, used=789 KiB, logicalBytes=0 B), ranges=0, leases=0, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200313 14:36:16.717965 9 storage/stores.go:240  [n2] read 1 node addresses from persistent storage
+I200313 14:36:16.718483 9 server/node.go:645  [n2] connecting to gossip network to verify cluster ID...
+W200313 14:36:17.220752 45 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {node_1:26257 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200313 14:36:18.225437 93 gossip/gossip.go:1300  [n2] invalid bootstrap address: &{typ:tcp addr:29b1af8e5b79:26257}, lookup 29b1af8e5b79 on 127.0.0.11:53: no such host
+I200313 14:36:18.238042 81 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n2] circuitbreaker: gossip [::]:26257->node_1:26257 event: BreakerReset
+I200313 14:36:18.238138 81 gossip/client.go:124  [n2] started gossip client to node_1:26257
+I200313 14:36:18.239446 12 storage/stores.go:259  [n2] wrote 2 node addresses to persistent storage
+I200313 14:36:18.239557 12 storage/stores.go:259  [n2] wrote 3 node addresses to persistent storage
+I200313 14:36:18.239686 12 storage/stores.go:259  [n2] wrote 4 node addresses to persistent storage
+I200313 14:36:18.240072 9 server/node.go:665  [n2] node connected via gossip and verified as part of cluster "658b6d5e-e699-44c5-895d-ae8ec745f62b"
+I200313 14:36:18.240221 9 server/node.go:512  [n2] node=2: started with [<no-attributes>=/cockroach/cockroach-data] engine(s) and attributes []
+I200313 14:36:18.243451 9 server/server.go:1514  [n2] starting http server at [::]:8080 (use: 22bf95210875:8080)
+I200313 14:36:18.244178 9 server/server.go:1521  [n2] starting grpc/postgres server at [::]:26257
+I200313 14:36:18.244376 9 server/server.go:1522  [n2] advertising CockroachDB node at 22bf95210875:26257
+I200313 14:36:18.327107 9 server/server.go:1590  [n2] done ensuring all necessary migrations have run
+I200313 14:36:18.327202 9 server/server.go:1841  [n2] serving sql connections
+I200313 14:36:18.327335 9 cli/start.go:803  [config] clusterID: 658b6d5e-e699-44c5-895d-ae8ec745f62b
+I200313 14:36:18.327394 9 cli/start.go:812  node startup completed:
+CockroachDB node starting at 2020-03-13 14:36:18.3272516 +0000 UTC (took 2.5s)
+build:               CCL v19.2.4 @ 2020/02/06 21:55:19 (go1.12.12)
+webui:               http://22bf95210875:8080
+sql:                 postgresql://root@22bf95210875:26257?sslmode=disable
+RPC client flags:    /cockroach/cockroach <client cmd> --host=22bf95210875:26257 --insecure
+logs:                /cockroach/cockroach-data/logs
+temp dir:            /cockroach/cockroach-data/cockroach-temp096492076
+external I/O path:   /cockroach/cockroach-data/extern
+store[0]:            path=/cockroach/cockroach-data
+status:              restarted pre-existing node
+clusterID:           658b6d5e-e699-44c5-895d-ae8ec745f62b
+nodeID:              2
+I200313 14:36:18.355994 258 server/server_update.go:53  [n2] no need to upgrade, cluster already at the newest version
+I200313 14:36:18.357396 260 sql/event_log.go:130  [n2] Event: "node_restart", target: 2, info: {Descriptor:{NodeID:2 Address:22bf95210875:26257 Attrs: Locality: ServerVersion:19.2 BuildTag:v19.2.4 StartedAt:1584110176607859100 LocalityAddress:[] ClusterName: SQLAddress:22bf95210875:26257} ClusterID:658b6d5e-e699-44c5-895d-ae8ec745f62b StartedAt:1584110176607859100 LastUp:1584109583650452500}
+I200313 14:36:19.008418 248 storage/replica_raftstorage.go:794  [n2,s2,r4/3:{-}] applying LEARNER snapshot [id=5e8002e3 index=1429]
+I200313 14:36:19.068499 248 storage/replica_raftstorage.go:815  [n2,s2,r4/3:/System{/tsd-tse}] applied LEARNER snapshot [total=60ms ingestion=4@57ms id=5e8002e3 index=1429]
+I200313 14:36:19.274054 319 storage/replica_raftstorage.go:794  [n2,s2,r9/3:{-}] applying LEARNER snapshot [id=95ca6cba index=85]
+I200313 14:36:19.317115 319 storage/replica_raftstorage.go:815  [n2,s2,r9/3:/Table/1{3-4}] applied LEARNER snapshot [total=43ms ingestion=4@39ms id=95ca6cba index=85]
+I200313 14:36:19.550272 372 storage/replica_raftstorage.go:794  [n2,s2,r17/3:{-}] applying LEARNER snapshot [id=f3df4d57 index=54]
+I200313 14:36:19.610519 372 storage/replica_raftstorage.go:815  [n2,s2,r17/3:/Table/2{1-2}] applied LEARNER snapshot [total=60ms ingestion=4@57ms id=f3df4d57 index=54]
+I200313 14:36:20.474580 94 gossip/gossip.go:1531  [n2] node has connected to cluster via gossip
+I200313 14:36:20.475424 94 storage/stores.go:259  [n2] wrote 3 node addresses to persistent storage
+I200313 14:36:21.366495 473 storage/replica_raftstorage.go:794  [n2,s2,r12/3:{-}] applying LEARNER snapshot [id=2dbc0c83 index=36]
+I200313 14:36:21.404791 473 storage/replica_raftstorage.go:815  [n2,s2,r12/3:/Table/1{6-7}] applied LEARNER snapshot [total=38ms ingestion=4@36ms id=2dbc0c83 index=36]
+I200313 14:36:21.549900 485 storage/replica_raftstorage.go:794  [n2,s2,r8/4:{-}] applying LEARNER snapshot [id=d3915992 index=155]
+I200313 14:36:21.619927 485 storage/replica_raftstorage.go:815  [n2,s2,r8/4:/Table/1{2-3}] applied LEARNER snapshot [total=70ms ingestion=4@64ms id=d3915992 index=155]
+I200313 14:36:22.433051 487 storage/replica_raftstorage.go:794  [n2,s2,r5/3:{-}] applying LEARNER snapshot [id=720bdf4e index=40]
+I200313 14:36:22.509865 487 storage/replica_raftstorage.go:815  [n2,s2,r5/3:/{Systemtse-Table/System…}] applied LEARNER snapshot [total=77ms ingestion=4@72ms id=720bdf4e index=40]
+I200313 14:36:23.399366 490 storage/replica_raftstorage.go:794  [n2,s2,r23/3:{-}] applying LEARNER snapshot [id=d9ce6916 index=50]
+I200313 14:36:23.445585 490 storage/replica_raftstorage.go:815  [n2,s2,r23/3:/Table/2{7-8}] applied LEARNER snapshot [total=46ms ingestion=4@43ms id=d9ce6916 index=50]
+I200313 14:36:23.644060 477 storage/replica_command.go:1586  [n2,replicate,s2,r23/3:/Table/2{7-8}] change replicas (add [(n4,s4):4LEARNER] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=4]
+I200313 14:36:23.715679 477 storage/replica_raft.go:291  [n2,s2,r23/3:/Table/2{7-8}] proposing ADD_REPLICA[(n4,s4):4LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3 (n4,s4):4LEARNER] next=5
+I200313 14:36:23.722579 477 storage/store_snapshot.go:978  [n2,replicate,s2,r23/3:/Table/2{7-8}] sending LEARNER snapshot c66405a1 at applied index 56
+I200313 14:36:23.722735 480 storage/raft_snapshot_queue.go:125  [n2,raftsnapshot,s2,r23/3:/Table/2{7-8}] skipping snapshot; replica is likely a learner in the process of being added: (n4,s4):4LEARNER
+I200313 14:36:23.722934 477 storage/store_snapshot.go:1021  [n2,replicate,s2,r23/3:/Table/2{7-8}] streamed snapshot to (n4,s4):4LEARNER: kv pairs: 21, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200313 14:36:23.787719 477 storage/replica_command.go:1586  [n2,replicate,s2,r23/3:/Table/2{7-8}] change replicas (add [(n4,s4):4VOTER_INCOMING] remove [(n1,s1):1VOTER_OUTGOING]): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, (n3,s3):2, (n2,s2):3, (n4,s4):4LEARNER, next=5, gen=5]
+I200313 14:36:23.814163 477 storage/replica_raft.go:291  [n2,s2,r23/3:/Table/2{7-8}] proposing ENTER_JOINT ADD_REPLICA[(n4,s4):4VOTER_INCOMING], REMOVE_REPLICA[(n1,s1):1VOTER_OUTGOING]: after=[(n1,s1):1VOTER_OUTGOING (n3,s3):2 (n2,s2):3 (n4,s4):4VOTER_INCOMING] next=5
+I200313 14:36:23.818841 477 storage/replica_command.go:1586  [n2,replicate,s2,r23/3:/Table/2{7-8}] change replicas (add [] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1VOTER_OUTGOING, (n3,s3):2, (n2,s2):3, (n4,s4):4VOTER_INCOMING, next=5, gen=6]
+I200313 14:36:23.895654 477 storage/replica_raft.go:291  [n2,s2,r23/3:/Table/2{7-8}] proposing LEAVE_JOINT: after=[(n4,s4):4 (n3,s3):2 (n2,s2):3] next=5
+I200313 14:36:24.280514 536 storage/replica_raftstorage.go:794  [n2,s2,r19/2:{-}] applying LEARNER snapshot [id=6996bed0 index=40]
+I200313 14:36:24.331631 536 storage/replica_raftstorage.go:815  [n2,s2,r19/2:/Table/2{3-4}] applied LEARNER snapshot [total=51ms ingestion=4@46ms id=6996bed0 index=40]
+I200313 14:36:25.289450 556 storage/replica_raftstorage.go:794  [n2,s2,r24/2:{-}] applying LEARNER snapshot [id=7e700622 index=376]
+I200313 14:36:25.328054 556 storage/replica_raftstorage.go:815  [n2,s2,r24/2:/{Table/28-Max}] applied LEARNER snapshot [total=39ms ingestion=4@36ms id=7e700622 index=376]
+I200313 14:36:27.297486 583 storage/replica_raftstorage.go:794  [n2,s2,r6/2:{-}] applying LEARNER snapshot [id=e6bae971 index=89]
+I200313 14:36:27.428883 583 storage/replica_raftstorage.go:815  [n2,s2,r6/2:/Table/{SystemCon…-11}] applied LEARNER snapshot [total=131ms ingestion=4@126ms id=e6bae971 index=89]
+I200313 14:36:28.211956 169 server/status/runtime.go:498  [n2] runtime stats: 181 MiB RSS, 238 goroutines, 118 MiB/3.5 MiB/135 MiB GO alloc/idle/total, 20 MiB/31 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (10x), 651 KiB/210 KiB (r/w)net
+I200313 14:36:28.343128 626 storage/replica_raftstorage.go:794  [n2,s2,r14/2:{-}] applying LEARNER snapshot [id=156f3713 index=38]
+I200313 14:36:28.457104 626 storage/replica_raftstorage.go:815  [n2,s2,r14/2:/Table/1{8-9}] applied LEARNER snapshot [total=114ms ingestion=4@110ms id=156f3713 index=38]
+I200313 14:36:29.257257 636 storage/replica_raftstorage.go:794  [n2,s2,r1/2:{-}] applying LEARNER snapshot [id=47abbf4c index=959]
+I200313 14:36:29.322540 636 storage/replica_raftstorage.go:815  [n2,s2,r1/2:/{Min-System/NodeL…}] applied LEARNER snapshot [total=65ms ingestion=4@61ms id=47abbf4c index=959]
+I200313 14:36:30.272883 696 storage/replica_raftstorage.go:794  [n2,s2,r18/2:{-}] applying LEARNER snapshot [id=9098c76d index=42]
+I200313 14:36:30.335461 696 storage/replica_raftstorage.go:815  [n2,s2,r18/2:/Table/2{2-3}] applied LEARNER snapshot [total=63ms ingestion=4@58ms id=9098c76d index=42]
+I200313 14:36:31.317019 761 storage/replica_raftstorage.go:794  [n2,s2,r11/2:{-}] applying LEARNER snapshot [id=288c9792 index=38]
+I200313 14:36:31.387621 761 storage/replica_raftstorage.go:815  [n2,s2,r11/2:/Table/1{5-6}] applied LEARNER snapshot [total=71ms ingestion=4@65ms id=288c9792 index=38]
+I200313 14:36:33.283874 852 storage/replica_raftstorage.go:794  [n2,s2,r13/2:{-}] applying LEARNER snapshot [id=4c72ca47 index=41]
+I200313 14:36:33.332822 852 storage/replica_raftstorage.go:815  [n2,s2,r13/2:/Table/1{7-8}] applied LEARNER snapshot [total=49ms ingestion=4@46ms id=4c72ca47 index=41]
+I200313 14:36:35.273962 863 storage/replica_raftstorage.go:794  [n2,s2,r20/2:{-}] applying LEARNER snapshot [id=3475fc0a index=38]
+I200313 14:36:35.329824 863 storage/replica_raftstorage.go:815  [n2,s2,r20/2:/Table/2{4-5}] applied LEARNER snapshot [total=56ms ingestion=4@52ms id=3475fc0a index=38]
+I200313 14:36:36.278085 915 storage/replica_raftstorage.go:794  [n2,s2,r22/2:{-}] applying LEARNER snapshot [id=eecfaed3 index=45]
+I200313 14:36:36.324073 915 storage/replica_raftstorage.go:815  [n2,s2,r22/2:/Table/2{6-7}] applied LEARNER snapshot [total=46ms ingestion=4@40ms id=eecfaed3 index=45]
+I200313 14:36:38.211594 169 server/status/runtime.go:498  [n2] runtime stats: 193 MiB RSS, 238 goroutines, 98 MiB/87 MiB/201 MiB GO alloc/idle/total, 22 MiB/37 MiB CGO alloc/total, 406.8 CGO/sec, 6.8/12.0 %(u/s)time, 0.0 %gc (1x), 339 KiB/313 KiB (r/w)net
+I200313 14:36:38.335822 196 storage/store.go:2364  [n2,s2] sstables (read amplification = 2):
+0 [   3K  1 ]: 3K
+6 [ 394K 11 ]: 385K 1K[10]
+I200313 14:36:38.336078 196 storage/store.go:2365  [n2,s2] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    3.13 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   0.3      0.0      0.1      1.40              0.04        75    0.019       0      0
+  L6     11/0   394.30 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0  34.3      7.3      7.2      1.21              0.53        35    0.035    117K   1113
+ Sum     12/0   397.43 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0  16.1      3.4      3.4      2.61              0.58       110    0.024    117K   1113
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0  16.1      3.4      3.4      2.61              0.58       110    0.024    117K   1113
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Low      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      8.7      8.5      1.02              0.53        25    0.041    117K   1113
+High      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      1.7      0.11              0.04        17    0.006       0      0
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      1.48              0.00        68    0.022       0      0
+Uptime(secs): 22.2 total, 22.2 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 68, interval 68
+AddFile(L0 Files): cumulative 58, interval 58
+AddFile(Keys): cumulative 4767, interval 4767
+Cumulative compaction: 0.01 GB write, 0.40 MB/s write, 0.01 GB read, 0.40 MB/s read, 2.6 seconds
+Interval compaction: 0.01 GB write, 0.40 MB/s write, 0.01 GB read, 0.40 MB/s read, 2.6 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I200313 14:36:38.461094 1032 storage/replica_raftstorage.go:794  [n2,s2,r2/3:{-}] applying LEARNER snapshot [id=cf3ca405 index=2563]
+I200313 14:36:38.524318 1032 storage/replica_raftstorage.go:815  [n2,s2,r2/3:/System/NodeLiveness{-Max}] applied LEARNER snapshot [total=63ms ingestion=4@58ms id=cf3ca405 index=2563]
+I200313 14:36:48.211571 169 server/status/runtime.go:498  [n2] runtime stats: 195 MiB RSS, 238 goroutines, 109 MiB/77 MiB/201 MiB GO alloc/idle/total, 22 MiB/37 MiB CGO alloc/total, 141.5 CGO/sec, 2.4/4.5 %(u/s)time, 0.0 %gc (0x), 143 KiB/111 KiB (r/w)net
+I200313 14:36:58.177992 169 server/status/runtime.go:498  [n2] runtime stats: 197 MiB RSS, 241 goroutines, 121 MiB/65 MiB/201 MiB GO alloc/idle/total, 22 MiB/37 MiB CGO alloc/total, 91.2 CGO/sec, 2.5/3.5 %(u/s)time, 0.0 %gc (0x), 134 KiB/182 KiB (r/w)net
+I200313 14:37:08.178680 169 server/status/runtime.go:498  [n2] runtime stats: 219 MiB RSS, 239 goroutines, 83 MiB/98 MiB/202 MiB GO alloc/idle/total, 21 MiB/38 MiB CGO alloc/total, 342.0 CGO/sec, 4.1/8.4 %(u/s)time, 0.0 %gc (1x), 359 KiB/702 KiB (r/w)net
