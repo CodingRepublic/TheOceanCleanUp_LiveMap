@@ -23,7 +23,7 @@ func getConfig() (*Config, error) {
 	if env == "" {
 		return nil, errors.New("APP_ENV not set")
 	} else if env == LocalEnv {
-		configFilePath = "./config/local/local.config.yaml"
+		configFilePath = "./config/dev/dev.config.yaml"
 	} else if env == StagingEnv {
 		configFilePath = "./config/staging/staging.config.yaml"
 	} else if env == ProductionEnv {

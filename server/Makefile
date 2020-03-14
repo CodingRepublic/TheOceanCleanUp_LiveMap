@@ -3,20 +3,19 @@ BOLD         := $(shell tput bold)
 
 RESET := $(shell tput -Txterm sgr0)
 
-all:
+dev: clean env-up build
+	APP_ENV=local ./server
 
 build:
 	go build
 
-run: build
-	APP_ENV=local ./server
-
 env-up:
 	@echo "${GREEN}${BOLD}Starting development environement${RESET}"
-	@cd config/local/ && docker-compose up -d
+	@cd config/dev/ && docker-compose up -d
 	@echo "${GREEN}${BOLD}Environment up${RESET}"
 
 clean:
 	@echo "${GREEN}${BOLD}Shuting development environement${RESET}"
-	@cd config/local/ && docker-compose down
+	@cd config/dev/ && docker-compose down -v
+	@rm -rf config/dev/data
 	@echo "${GREEN}${BOLD}Environement down${RESET}"

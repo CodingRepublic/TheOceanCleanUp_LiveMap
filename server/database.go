@@ -1,16 +1,19 @@
 package main
 
-import "database/sql"
+import (
+	"database/sql"
+	_ "github.com/lib/pq"
+)
 
 type DatabaseConfig struct {
-	User  string `yaml:"user"`
-	Table string `yaml:"table"`
-	Host  string `yaml:"host"`
+	User string `yaml:"user"`
+	Host string `yaml:"host"`
 }
 
 type Database struct {
-	DB     *sql.DB
 	config *DatabaseConfig
+
+	DB *sql.DB
 }
 
 func GetDatabase(config *DatabaseConfig) (*Database, error) {

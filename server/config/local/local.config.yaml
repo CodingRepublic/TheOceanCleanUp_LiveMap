@@ -1,4 +1,0 @@
-database:
-  user: root
-  table: postgres
-  host: localhost:26257
