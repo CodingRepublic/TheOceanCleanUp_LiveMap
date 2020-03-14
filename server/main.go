@@ -14,9 +14,9 @@ const (
 	ProductionEnv = "production"
 )
 
-func getConfig() (*ServerConfig, error) {
+func getConfig() (*Config, error) {
 	var configFilePath string
-	var serverConfig ServerConfig
+	var serverConfig Config
 
 	env := os.Getenv("APP_ENV")
 
@@ -47,13 +47,16 @@ func main() {
 	config, err := getConfig()
 	if err != nil {
 		log.Printf("getConfig error: %v\n", err)
+		return
 	}
 	server, err := CreateServer(config)
 	if err != nil {
 		log.Printf("CreateServer error: %v\n", err)
+		return
 	}
 	err = server.Run()
 	if err != nil {
 		log.Printf("Run error: %v\n", err)
+		return
 	}
 }

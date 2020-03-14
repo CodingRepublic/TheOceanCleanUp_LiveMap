@@ -2,4 +2,7 @@ module server
 
 go 1.13
 
-require gopkg.in/yaml.v2 v2.2.8 // indirect
+require (
+	github.com/lib/pq v1.3.0
+	gopkg.in/yaml.v2 v2.2.8
+)
