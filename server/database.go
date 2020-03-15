@@ -1,8 +1,8 @@
 package main
 
 import (
-	"database/sql"
 	_ "github.com/lib/pq"
+	r "gopkg.in/rethinkdb/rethinkdb-go.v6"
 )
 
 type DatabaseConfig struct {
@@ -13,54 +13,20 @@ type DatabaseConfig struct {
 type Database struct {
 	config *DatabaseConfig
 
-	DB *sql.DB
+	DB *r.Session
 }
 
-func GetDatabase(config *DatabaseConfig) (*Database, error) {
+func InitDatabase(config *DatabaseConfig) (*Database, error) {
 	var database Database
 	var err error
 
-	database.DB, err = sql.Open("postgres",
-		"postgresql://"+
-			config.User+"@"+
-			config.Host+
-			"?sslmode=disable")
-	if err != nil {
-		return nil, err
-	}
-
-	// TEMP
-	err = database.ResetDatabase()
+	database.DB, err = r.Connect(r.ConnectOpts{
+		Address: config.Host,
+	})
 	if err != nil {
 		return nil, err
 	}
 
 	database.config = config
 	return &database, nil
-}
-
-func (db *Database) ResetDatabase() error {
-	var err error
-
-	// Remove tables
-	if _, err = db.DB.Exec(
-		"DROP DATABASE IF EXISTS postgres"); err != nil {
-		return err
-	}
-	if _, err = db.DB.Exec(
-		"DROP DATABASE IF EXISTS defaultdb"); err != nil {
-		return err
-	}
-	if _, err = db.DB.Exec(
-		"DROP DATABASE IF EXISTS oceancleanup"); err != nil {
-		return err
-	}
-
-	// Add tables
-	if _, err = db.DB.Exec(
-		"CREATE DATABASE IF NOT EXISTS oceancleanup"); err != nil {
-		return err
-	}
-
-	return nil
 }

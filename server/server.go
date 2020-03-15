@@ -1,7 +1,7 @@
 package main
 
 type Config struct {
-	Database *DatabaseConfig `yaml:"database"`
+	Database *DatabaseConfig `yaml:"db"`
 }
 
 type Server struct {
@@ -12,7 +12,7 @@ func CreateServer(config *Config) (*Server, error) {
 	var err error
 	server := Server{}
 
-	server.Database, err = GetDatabase(config.Database)
+	server.Database, err = InitDatabase(config.Database)
 	if err != nil {
 		return nil, err
 	}

@@ -3,21 +3,11 @@ version: "3.2"
 services:
   db:
     container_name: db
-    image: cockroachdb/cockroach:v19.2.4
-    volumes:
-      - ./data/db:/cockroach/cockroach-data
-    command: start-single-node --insecure
-    ports:
-        - "26257:26257"
-#        - "8080:8080"
-
-  realtimedb:
-    container_name: realtimedb
     image: rethinkdb:2.4.0
     volumes:
-      - ./data/realtimedb:/data/rethinkdb_data
-    command: rethinkdb --bind all --http-port 8081
+      - ./data/:/data/rethinkdb_data
+    command: rethinkdb -d /data/rethinkdb_data --bind all
     ports:
       - "29015:29015"
       - "28015:28015"
-      - "8081:8081"
+      - "8080:8080"

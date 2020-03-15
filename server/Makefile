@@ -9,12 +9,16 @@ dev: clean env-up build
 build:
 	go build
 
+cleanbuild:
+	@rm -f server
+
 env-up:
 	@echo "${GREEN}${BOLD}Starting development environement${RESET}"
+	@cp -r config/dev/dataSaved config/dev/data
 	@cd config/dev/ && docker-compose up -d
 	@echo "${GREEN}${BOLD}Environment up${RESET}"
 
-clean:
+clean: cleanbuild
 	@echo "${GREEN}${BOLD}Shuting development environement${RESET}"
 	@cd config/dev/ && docker-compose down -v
 	@rm -rf config/dev/data
