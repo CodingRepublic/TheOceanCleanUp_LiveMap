@@ -1,22 +1,22 @@
-package main
+package database
 
 import (
 	_ "github.com/lib/pq"
 	r "gopkg.in/rethinkdb/rethinkdb-go.v6"
 )
 
-type DatabaseConfig struct {
+type Config struct {
 	User string `yaml:"user"`
 	Host string `yaml:"host"`
 }
 
 type Database struct {
-	config *DatabaseConfig
+	config *Config
 
 	DB *r.Session
 }
 
-func InitDatabase(config *DatabaseConfig) (*Database, error) {
+func Init(config *Config) (*Database, error) {
 	var database Database
 	var err error
 

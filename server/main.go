@@ -54,9 +54,5 @@ func main() {
 		log.Printf("CreateServer error: %v\n", err)
 		return
 	}
-	err = server.Run()
-	if err != nil {
-		log.Printf("Run error: %v\n", err)
-		return
-	}
+	server.Run()
 }
