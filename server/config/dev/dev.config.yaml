@@ -1,3 +1,7 @@
-db:
-#  user: root
+handler:
   host: localhost
+  port: 8001
+
+db:
+  host: localhost
+  port: 8002

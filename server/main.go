@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"server/server"
 )
 
 const (
@@ -14,9 +15,9 @@ const (
 	ProductionEnv = "production"
 )
 
-func getConfig() (*Config, error) {
+func getConfig() (*server.Config, error) {
 	var configFilePath string
-	var serverConfig Config
+	var serverConfig server.Config
 
 	env := os.Getenv("APP_ENV")
 
@@ -49,10 +50,10 @@ func main() {
 		log.Printf("getConfig error: %v\n", err)
 		return
 	}
-	server, err := CreateServer(config)
+	serv, err := server.Create(config)
 	if err != nil {
 		log.Printf("CreateServer error: %v\n", err)
 		return
 	}
-	server.Run()
+	serv.Run()
 }

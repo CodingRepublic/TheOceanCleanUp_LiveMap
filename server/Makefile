@@ -4,13 +4,13 @@ BOLD         := $(shell tput bold)
 RESET := $(shell tput -Txterm sgr0)
 
 dev: clean env-up build
-	APP_ENV=local ./server
+	APP_ENV=local ./app
 
 build:
-	go build
+	go build -o app
 
 cleanbuild:
-	@rm -f server
+	@rm -f app
 
 env-up:
 	@echo "${GREEN}${BOLD}Starting development environement${RESET}"
