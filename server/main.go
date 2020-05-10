@@ -50,10 +50,12 @@ func main() {
 		log.Printf("getConfig error: %v\n", err)
 		return
 	}
-	serv, err := server.Create(config)
+
+	err = server.Init(config)
 	if err != nil {
-		log.Printf("CreateServer error: %v\n", err)
+		log.Printf("Init error: %v\n", err)
 		return
 	}
-	serv.Run()
+
+	server.Start()
 }

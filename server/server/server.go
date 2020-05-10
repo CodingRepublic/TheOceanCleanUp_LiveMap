@@ -1,36 +1,25 @@
 package server
 
-import (
-	"log"
-)
-
 type Config struct {
 	Database *DatabaseConfig `yaml:"db"`
 	Handler  *HandlerConfig  `yaml:"handler"`
 }
 
-type Server struct {
-	Database *Database
-	Handler  *Handler
-}
-
-func Create(config *Config) (*Server, error) {
-	server := Server{}
+func Init(config *Config) error {
 	var err error
 
-	server.Database, err = InitDatabase(config.Database)
+	err = InitDatabase(config.Database)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	server.Handler, err = InitHandler(config.Handler)
+	err = InitHandler(config.Handler)
 	if err != nil {
-		return nil, err
+		return err
 	}
-
-	return &server, nil
+	return nil
 }
 
-func (s *Server) Run() {
-	log.Fatal(s.Handler.server.ListenAndServe())
+func Start() {
+	myHandler.Start()
 }

@@ -1,0 +1,51 @@
+2020-03-15T12:23:21.719922300 0.009779s notice: Recursively removing directory /data/rethinkdb_data/tmp
+2020-03-15T12:23:21.729380500 0.019241s notice: Initializing directory /data/rethinkdb_data
+2020-03-15T12:23:21.730134200 0.019991s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/data/rethinkdb_data' did not already exist or is empty.)
+2020-03-15T12:23:21.730577900 0.020438s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-03-15T12:23:21.735141100 0.025001s notice: Running on Linux 4.9.184-linuxkit x86_64
+2020-03-15T12:23:21.735598200 0.025455s notice: Loading data from directory /data/rethinkdb_data
+2020-03-15T12:23:21.775709100 0.065570s info: Automatically using cache size of 290 MB
+2020-03-15T12:23:21.778131300 0.067987s notice: Listening for intracluster connections on port 29015
+2020-03-15T12:23:21.780586200 0.070443s notice: Listening for client driver connections on port 28015
+2020-03-15T12:23:21.780891600 0.070748s notice: Listening for administrative HTTP connections on port 8080
+2020-03-15T12:23:21.780915500 0.070771s notice: Listening on cluster addresses: 127.0.0.1, 172.26.0.2
+2020-03-15T12:23:21.780936600 0.070792s notice: Listening on driver addresses: 127.0.0.1, 172.26.0.2
+2020-03-15T12:23:21.780956800 0.070812s notice: Listening on http addresses: 127.0.0.1, 172.26.0.2
+2020-03-15T12:23:21.780977100 0.070833s notice: Server ready, "cb19a72b22ed_pu0" 2aee6d09-74a0-4c0e-a4fb-f74f1962d4fc
+2020-05-10T22:21:06.722416000 0.012652s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-05-10T22:21:06.728009600 0.018243s notice: Running on Linux 4.9.184-linuxkit x86_64
+2020-05-10T22:21:06.728643600 0.018874s notice: Loading data from directory /data/rethinkdb_data
+2020-05-10T22:21:06.762588800 0.052821s info: Automatically using cache size of 156 MB
+2020-05-10T22:21:06.765029800 0.055260s notice: Listening for intracluster connections on port 29015
+2020-05-10T22:21:06.767389300 0.057619s notice: Listening for client driver connections on port 28015
+2020-05-10T22:21:06.767711700 0.057943s notice: Listening for administrative HTTP connections on port 8080
+2020-05-10T22:21:06.767740200 0.057970s notice: Listening on cluster addresses: 127.0.0.1, 172.26.0.2
+2020-05-10T22:21:06.767764400 0.057995s notice: Listening on driver addresses: 127.0.0.1, 172.26.0.2
+2020-05-10T22:21:06.767783400 0.058014s notice: Listening on http addresses: 127.0.0.1, 172.26.0.2
+2020-05-10T22:21:06.767807500 0.058038s notice: Server ready, "cb19a72b22ed_pu0" 2aee6d09-74a0-4c0e-a4fb-f74f1962d4fc
+2020-05-10T22:21:44.512967700 37.838183s info: Table 2f13f80e-a555-46ee-88f2-a0fe44153ea1: Starting a new Raft election for term 1.
+2020-05-10T22:21:44.513553800 37.838769s info: Table 2f13f80e-a555-46ee-88f2-a0fe44153ea1: Added replica on this server.
+2020-05-10T22:21:44.516444200 37.841658s info: Table 2f13f80e-a555-46ee-88f2-a0fe44153ea1: This server is Raft leader for term 1. Latest log index is 0.
+2020-05-10T22:23:01.411581500 114.841094s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2020-05-10T22:23:01.411805000 114.841317s notice: Shutting down client connections...
+2020-05-10T22:23:01.411927000 114.841439s notice: All client connections closed.
+2020-05-10T22:23:01.411944200 114.841456s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-05-10T22:23:01.417353400 114.846866s notice: Storage engine shut down.
+2020-05-10T22:24:30.825098200 0.013763s notice: Running rethinkdb 2.4.0~0bionic (CLANG 6.0.0 (tags/RELEASE_600/final))...
+2020-05-10T22:24:30.831344400 0.020026s notice: Running on Linux 4.9.184-linuxkit x86_64
+2020-05-10T22:24:30.832174600 0.020848s notice: Loading data from directory /data/rethinkdb_data
+2020-05-10T22:24:30.862012400 0.050679s info: Automatically using cache size of 155 MB
+2020-05-10T22:24:30.864913500 0.053578s notice: Listening for intracluster connections on port 29015
+2020-05-10T22:24:30.901221500 0.089887s notice: Listening for client driver connections on port 28015
+2020-05-10T22:24:30.901325800 0.089992s notice: Listening for administrative HTTP connections on port 8080
+2020-05-10T22:24:30.901353600 0.090021s notice: Listening on cluster addresses: 127.0.0.1, 172.29.0.2
+2020-05-10T22:24:30.901387300 0.090053s notice: Listening on driver addresses: 127.0.0.1, 172.29.0.2
+2020-05-10T22:24:30.901418400 0.090083s notice: Listening on http addresses: 127.0.0.1, 172.29.0.2
+2020-05-10T22:24:30.901469100 0.090134s notice: Server ready, "cb19a72b22ed_pu0" 2aee6d09-74a0-4c0e-a4fb-f74f1962d4fc
+2020-05-10T22:24:32.780728500 1.969402s info: Table 2f13f80e-a555-46ee-88f2-a0fe44153ea1: Starting a new Raft election for term 2.
+2020-05-10T22:24:32.783466600 1.972139s info: Table 2f13f80e-a555-46ee-88f2-a0fe44153ea1: This server is Raft leader for term 2. Latest log index is 2.
+2020-05-10T22:25:11.760252200 40.983715s notice: Server got SIGTERM from pid 0, uid 0; shutting down...
+2020-05-10T22:25:11.760695300 40.984158s notice: Shutting down client connections...
+2020-05-10T22:25:11.761213900 40.984676s notice: All client connections closed.
+2020-05-10T22:25:11.761237500 40.984700s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-05-10T22:25:11.767931000 40.991393s notice: Storage engine shut down.

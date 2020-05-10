@@ -13,13 +13,13 @@ cleanbuild:
 	@rm -f app
 
 env-up:
-	@echo "${GREEN}${BOLD}Starting development environement${RESET}"
-	@cp -r config/dev/dataSaved config/dev/data
+	@echo "${GREEN}${BOLD}Starting development environment${RESET}"
+	@cp -r config/dev/basicData config/dev/data
 	@cd config/dev/ && docker-compose up -d
 	@echo "${GREEN}${BOLD}Environment up${RESET}"
 
 clean: cleanbuild
-	@echo "${GREEN}${BOLD}Shuting development environement${RESET}"
+	@echo "${GREEN}${BOLD}Shutting development environment${RESET}"
 	@cd config/dev/ && docker-compose down -v
 	@rm -rf config/dev/data
-	@echo "${GREEN}${BOLD}Environement down${RESET}"
+	@echo "${GREEN}${BOLD}Environment down${RESET}"

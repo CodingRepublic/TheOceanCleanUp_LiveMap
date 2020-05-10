@@ -1,9 +1,10 @@
 package server
 
 import (
-	_ "github.com/lib/pq"
 	r "gopkg.in/rethinkdb/rethinkdb-go.v6"
 )
+
+var myDatabase Database
 
 type DatabaseConfig struct {
 	User string `yaml:"user"`
@@ -13,20 +14,40 @@ type DatabaseConfig struct {
 type Database struct {
 	config *DatabaseConfig
 
-	db *r.Session
+	session *r.Session
 }
 
-func InitDatabase(config *DatabaseConfig) (*Database, error) {
-	var database Database
+func InitDatabase(config *DatabaseConfig) error {
 	var err error
 
-	database.db, err = r.Connect(r.ConnectOpts{
+	myDatabase.session, err = r.Connect(r.ConnectOpts{
 		Address: config.Host,
 	})
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	database.config = config
-	return &database, nil
+	myDatabase.config = config
+	return nil
+}
+
+////////////////////////
+// DATABASE FUNCTIONS //
+////////////////////////
+
+func (db *Database) NewFleetUnit(ID string) error {
+	newFleetUnit := FleetUnit{ID, Position{0, 0}}
+	_, err := r.DB("theoceancleanup").Table("real_time_fleet").Insert(newFleetUnit).RunWrite(db.session)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (db *Database) UpdateFleetUnit(updatedFleetUnit FleetUnit) error {
+	_, err := r.DB("theoceancleanup").Table("real_time_fleet").Update(updatedFleetUnit).RunWrite(db.session)
+	if err != nil {
+		return err
+	}
+	return nil
 }

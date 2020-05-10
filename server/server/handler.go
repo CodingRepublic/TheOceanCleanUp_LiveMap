@@ -2,9 +2,12 @@ package server
 
 import (
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
 	"time"
 )
+
+var myHandler Handler
 
 type HandlerConfig struct {
 	Host string `yaml:"host"`
@@ -17,17 +20,13 @@ type Handler struct {
 	server *http.Server
 }
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-}
-
-func InitHandler(config *HandlerConfig) (*Handler, error) {
-	var handler Handler
-
+func InitHandler(config *HandlerConfig) error {
 	r := mux.NewRouter()
-	r.HandleFunc("/", Home)
 
-	handler.server = &http.Server{
+	setHandlersApiClient(r)
+	setHandlersApiFleet(r)
+
+	myHandler.server = &http.Server{
 		Handler: r,
 		Addr:    config.Host + ":" + config.Port,
 
@@ -35,6 +34,10 @@ func InitHandler(config *HandlerConfig) (*Handler, error) {
 		ReadTimeout:  15 * time.Second,
 	}
 
-	handler.config = config
-	return &handler, nil
+	myHandler.config = config
+	return nil
+}
+
+func (handler *Handler) Start() {
+	log.Fatal(handler.server.ListenAndServe())
 }
